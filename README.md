@@ -1,24 +1,24 @@
-# manage_system
+写一个图片预览功能
+组件名字大驼峰命名
 
-## Project setup
-```
-npm install
-```
+开发规范
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+pages/是页面
 
-### Compiles and minifies for production
-```
-npm run build
-```
+页面名字采用小驼峰
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+目录结构
+
+菜单文件目录和菜单路由记录文件通过脚本自动生成，
+
+菜单文件如果已存在就不生成，如果没有就生成，
+
+菜单路由记录文件如果存在就删除重新生成
+
+菜单文件目录自动自动生成，
+
+如果当前是父路由，那就是直接是route-view
+
+如果就是一个当前是结尾子路由，内容就是一个当前路由名字的文本

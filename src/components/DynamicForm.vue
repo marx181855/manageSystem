@@ -72,6 +72,7 @@
 </template>
 
 <script lang="ts" setup>
+// 加个表单验证就行了
 import { reactive, defineProps, defineEmits } from 'vue';
 
 export interface FormOptions {

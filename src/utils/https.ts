@@ -1,6 +1,6 @@
 import axios, {AxiosInstance, AxiosRequestConfig } from "axios";
 
-interface ResponseJson<T> {
+interface ResponseResult<T> {
   data: T;
   code: number;
   msg: string
@@ -9,7 +9,7 @@ interface ResponseJson<T> {
 type RequestMethod = 'GET' | 'DELETE' | 'HEAD' | 'OPTIONS' | 'POST' | 'PUT' | 'PATCH';
 
 // 泛型T是api返回的data数据结构
-async function request<T>(url: string, params: unknown, method: RequestMethod = 'POST', contentType = false): Promise<ResponseJson<T>> {
+async function request<T>(url: string, params: unknown, method: RequestMethod = 'POST', contentType = false): Promise<ResponseResult<T>> {
   const instance: AxiosInstance = axios.create({
     baseURL: 'http://httpbin.org',
     timeout: 5000

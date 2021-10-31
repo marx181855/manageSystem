@@ -1,36 +1,31 @@
 import { RouteRecordRaw } from 'vue-router';
+import createMenuRouteRecord from '@/utils/sideBarMenu/createMenuRouteRecord';
+declare module 'vue-router' {
+  interface RouteMeta {
+    title: string;
+    roles: string[];
+  }
+}
+
+const sideBarRoute = createMenuRouteRecord();
 
 const routes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    redirect: '/home',
-  },
+  sideBarRoute[0],
   {
     path: '/',
     name: 'index',
-    component: () => import('@/pages/index/Index.vue'),
-    children: [
-      {
-        path: '/home',
-        name: 'home',
-        component: () => import('@/pages/index/home/Home.vue'),
-      },
-      {
-        path: '/about',
-        name: 'about',
-        component: () => import('@/pages/index/about/About.vue'),
-      }
-    ],
+    component: () => import('@/pages/index/index.vue'),
+    children: sideBarRoute[1],
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/pages/auth/Login.vue'),
+    component: () => import('@/pages/auth/login.vue'),
   },
   {
     path: '/register',
     name: 'register',
-    component: () => import('@/pages/auth/Register.vue'),
+    component: () => import('@/pages/auth/register.vue'),
   }
 ];
 
